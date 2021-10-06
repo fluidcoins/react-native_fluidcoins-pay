@@ -1,0 +1,22 @@
+{
+  "name": "react-native-fluidcoins-pay-example",
+  "displayName": "FluidcoinsPay Example",
+  "expo": {
+    "name": "react-native-fluidcoins-pay-example",
+    "slug": "react-native-fluidcoins-pay-example",
+    "description": "Example app for react-native-fluidcoins-pay",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
