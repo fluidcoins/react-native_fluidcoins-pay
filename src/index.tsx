@@ -1,3 +1,3 @@
-export function multiply(a: number, b: number): Promise<number> {
-  return Promise.resolve(a * b);
-}
+export { default as FluidcoinsPay } from './fluidcoins-pay';
+export { default as FluidcoinsProvider } from './pay-provider';
+export { default as useFluidcoinsPay } from './use-fluidcoins-pay';
