@@ -36,13 +36,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/fluidcoins/react-native-fluidcoins-pay.git",
-  "author": "Fluidcoins Inc. <support@fluidcoins.com> (http://fluidcoins.com)",
+  "repository": "https://github.com/fluidcoins/react-native_fluidcoins-pay",
+  "author": "Fluidcoins Inc. <developers@fluidcoins.com> (https://developers.fluidcoins.com/docs)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fluidcoins/react-native-fluidcoins-pay.git/issues"
+    "url": "https://github.com/fluidcoins/react-native_fluidcoins-pay/issues"
   },
-  "homepage": "https://github.com/fluidcoins/react-native-fluidcoins-pay.git#readme",
+  "homepage": "https://github.com/fluidcoins/react-native_fluidcoins-pay#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
