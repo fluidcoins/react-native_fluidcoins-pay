@@ -1,6 +1,6 @@
 {
   "name": "@fluidcoins/react-native-fluidcoins-pay",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Connect your React native app with FluidcoinsPay",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
