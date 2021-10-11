@@ -11,13 +11,14 @@ Fluidcoins Pay.js is quick and secure way to receive crypto payments in your app
 You can install the package via NPM or Yarn;
 
 ```
-npm install @fluidcoins/pay-react-native
+npm i @fluidcoins/react-native-fluidcoins-pay
+
 ```
 
 OR
 
 ```
-yarn add @fluidcoins/pay-react-native
+yarn add @fluidcoins/react-native-fluidcoins-pay
 ```
 Also install **`react-native-webview`** because it's a peer dependency for this package.
 
