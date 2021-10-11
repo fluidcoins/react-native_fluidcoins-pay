@@ -1,7 +1,7 @@
 import type { Config } from 'src/types';
 
 const generatePayUrl = (config: Config) => {
-  let endpoint = 'http://localhost:8080/?';
+  let endpoint = 'https://widget.fluidcoins.com/?';
   const isValid = validate(config);
   if (isValid) {
     Object.entries(config).forEach(([key, value]) => {
