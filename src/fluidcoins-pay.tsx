@@ -31,16 +31,16 @@ const FluidcoinsPay = (configProps: ConfigProps): JSX.Element => {
 
     switch (response.type) {
       case WebViewMessageType.WIDGET_OPEN:
-        configProps.onEvent(response.data);
+        configProps.onEvent && configProps.onEvent(response.data);
         break;
       case 'fluidcoins.widget_closed':
-        configProps.setOpenWidget(false);
+        configProps.setOpenWidget && configProps.setOpenWidget(false);
         break;
       case 'fluidcoins.success':
         configProps.onSuccess(response.data);
         break;
       case 'fluidcoins.error':
-        configProps.onError(response.data);
+        configProps.onError && configProps.onError(response.data);
         break;
       default:
         break;
@@ -53,7 +53,7 @@ const FluidcoinsPay = (configProps: ConfigProps): JSX.Element => {
         animationType="fade"
         visible={configProps.openWidget}
         onRequestClose={() => {
-          configProps.setOpenWidget(false);
+          configProps.setOpenWidget && configProps.setOpenWidget(false);
         }}
       >
         <SafeAreaView style={styles.full}>

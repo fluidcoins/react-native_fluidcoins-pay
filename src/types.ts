@@ -11,11 +11,11 @@ export interface ConfigProps extends Config {
   publicKey: string;
   callback_url?: string;
   onSuccess: (data: PaySuccessData) => void;
-  onError(data: PayEventData): (data: PayEventData) => void;
-  onLoad(): () => undefined;
-  onEvent(data: any): (event: PayEventData) => void;
+  onError?: (data: PayEventData) => void;
+  onLoad?: () => void;
+  onEvent?: (event: PayEventData) => void;
   openWidget?: boolean;
-  setOpenWidget(open: boolean): () => void;
+  setOpenWidget?: (open: boolean) => void;
 }
 
 export interface PayEventData {

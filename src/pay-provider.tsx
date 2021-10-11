@@ -9,7 +9,7 @@ const initialState = {
 export const FluidcoinsContext = React.createContext(initialState);
 
 interface FPProps extends ConfigProps {
-  children: React.ReactChildren;
+  children?: React.ReactNode;
 }
 
 const FluidcoinsProvider = (props: FPProps) => {
