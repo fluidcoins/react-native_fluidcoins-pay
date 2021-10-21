@@ -4,6 +4,7 @@ export interface Config {
   email: string;
   name?: string;
   phone?: string;
+  reference?: string;
   metadata?: Object;
 }
 
