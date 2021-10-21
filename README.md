@@ -238,6 +238,30 @@ const config = {
 };
 ```
 
+**_`reference`_**
+
+**OPTIONAL**
+
+This optional parameter; which is used to identify the initiated transaction.
+
+**NOTE** : It must be unique per transaction
+
+```
+const config = {
+  publicKey: 'YOUR_FLUIDCOINS_PUBLIC_KEY',
+  amount: parseInt(value, 10) * 100,
+  email: 'johndoe@test.com',
+  onSuccess: (data) => {
+    console.log(data)
+  },
+  onClose: () => {},
+  name: 'Seun Akanni',
+  phone: '+2348090909090',
+  reference: 'random-unique-identifier'
+};
+```
+
+
 **_`metadata`_**
 
 **OPTIONAL**
@@ -256,6 +280,7 @@ const config = {
   onClose: () => {},
   name: 'Seun Akanni',
   phone: '+2348090909090',
+  reference: 'random-unique-identifier'
   metadata: {
       key: 1
   }

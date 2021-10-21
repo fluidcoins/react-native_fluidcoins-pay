@@ -12,7 +12,8 @@ import { generatePayUrl } from './utils';
 import { ConfigProps, WebViewMessage, WebViewMessageType } from './types';
 
 const FluidcoinsPay = (configProps: ConfigProps): JSX.Element => {
-  const { publicKey, amount, email, name, phone, metadata } = configProps;
+  const { publicKey, amount, email, name, phone, metadata, reference } =
+    configProps;
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   const pay_url = React.useMemo(() => {
@@ -23,8 +24,9 @@ const FluidcoinsPay = (configProps: ConfigProps): JSX.Element => {
       name,
       phone,
       metadata,
+      reference,
     });
-  }, [publicKey, amount, email, name, phone, metadata]);
+  }, [publicKey, amount, email, name, phone, metadata, reference]);
 
   const messageHandler = (message: string) => {
     const response = JSON.parse(message) as WebViewMessage;
@@ -90,6 +92,7 @@ FluidcoinsPay.propTypes = {
   onSuccess: PropTypes.func.isRequired,
   onError: PropTypes.func,
   onEvent: PropTypes.func,
+  reference: PropTypes.string,
   metadata: PropTypes.object,
 };
 
