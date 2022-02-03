@@ -14,7 +14,7 @@ const generatePayUrl = (config: Config) => {
 };
 
 const validate = (config: Config) => {
-  if (!config.amount || config.amount / 1000 < 500) {
+  if (!config.amount || config.amount / 100 < 500) {
     return new Error(
       `Minimum 'amount' is 500 naira. Validation failed for FluidcoinsPay`
     );
