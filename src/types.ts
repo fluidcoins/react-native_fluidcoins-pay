@@ -6,6 +6,7 @@ export interface Config {
   phone?: string;
   reference?: string;
   metadata?: Object;
+  currency?: string;
 }
 
 export interface ConfigProps extends Config {
@@ -17,6 +18,10 @@ export interface ConfigProps extends Config {
   onEvent?: (event: PayEventData) => void;
   openWidget?: boolean;
   setOpenWidget?: (open: boolean) => void;
+}
+
+export interface ConfigPropsWithURL extends ConfigProps {
+  payURL: string;
 }
 
 export interface PayEventData {
@@ -43,6 +48,11 @@ export enum WebViewMessageType {
   SUCCESS = 'fluidcoins.success',
   ERROR = 'fluidcoins.error',
   CALL_CALLBACK_URL = 'fluidcoins.call_callback_url',
+}
+
+export enum SUPPORTED_CURRENCIES {
+  USD = 'USD',
+  NGN = 'NGN',
 }
 
 export interface WebViewMessage {

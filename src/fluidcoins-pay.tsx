@@ -8,25 +8,14 @@ import {
 } from 'react-native';
 import WebView from 'react-native-webview';
 import PropTypes from 'prop-types';
-import { generatePayUrl } from './utils';
-import { ConfigProps, WebViewMessage, WebViewMessageType } from './types';
+import {
+  ConfigPropsWithURL,
+  WebViewMessage,
+  WebViewMessageType,
+} from './types';
 
-const FluidcoinsPay = (configProps: ConfigProps): JSX.Element => {
-  const { publicKey, amount, email, name, phone, metadata, reference } =
-    configProps;
+const FluidcoinsPay = (configProps: ConfigPropsWithURL): JSX.Element => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-
-  const pay_url = React.useMemo(() => {
-    return generatePayUrl({
-      api_key: publicKey,
-      amount,
-      email,
-      name,
-      phone,
-      metadata,
-      reference,
-    });
-  }, [publicKey, amount, email, name, phone, metadata, reference]);
 
   const messageHandler = (message: string) => {
     const response = JSON.parse(message) as WebViewMessage;
@@ -61,7 +50,9 @@ const FluidcoinsPay = (configProps: ConfigProps): JSX.Element => {
         <SafeAreaView style={styles.full}>
           <WebView
             style={styles.full}
-            source={{ uri: pay_url }}
+            source={{
+              uri: configProps.payURL,
+            }}
             onLoadStart={() => setIsLoading(true)}
             onLoadEnd={() => setIsLoading(false)}
             onMessage={(event) => {
@@ -94,6 +85,8 @@ FluidcoinsPay.propTypes = {
   onEvent: PropTypes.func,
   reference: PropTypes.string,
   metadata: PropTypes.object,
+  currency: PropTypes.string,
+  payURL: PropTypes.string.isRequired,
 };
 
 export default FluidcoinsPay;
