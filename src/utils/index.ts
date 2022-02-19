@@ -1,4 +1,4 @@
-import type { Config } from 'src/types';
+import { Config, SUPPORTED_CURRENCIES } from '../types';
 
 const generatePayUrl = (config: Config) => {
   let endpoint = 'https://widget.fluidcoins.com/?';
@@ -14,11 +14,38 @@ const generatePayUrl = (config: Config) => {
 };
 
 const validate = (config: Config) => {
-  if (!config.amount || config.amount / 100 < 500) {
-    return new Error(
-      `Minimum 'amount' is 500 naira. Validation failed for FluidcoinsPay`
+  const supportedCurrencies = Object.keys(SUPPORTED_CURRENCIES).filter(
+    (currency) => typeof currency === 'string'
+  );
+  const currencyIsNotSupported =
+    config.currency &&
+    !supportedCurrencies.includes(config.currency.toUpperCase());
+
+  if (currencyIsNotSupported) {
+    throw new Error(
+      `We currently don't support ${config.currency}. Validation failed for FluidcoinsPay`
     );
   }
+
+  const currency = (config.currency && config.currency.toUpperCase()) || 'NGN';
+
+  switch (currency) {
+    case SUPPORTED_CURRENCIES.USD:
+      if (!config.amount || config.amount / 100 < 1) {
+        throw new Error(
+          `Minimum 'amount' is 1 USD. Validation failed for FluidcoinsPay`
+        );
+      }
+      break;
+    default:
+      if (!config.amount || config.amount / 100 < 500) {
+        throw new Error(
+          `Minimum 'amount' is 500 NGN. Validation failed for FluidcoinsPay`
+        );
+      }
+      break;
+  }
+
   if (config.metadata && typeof config.metadata !== 'object') {
     throw new Error(
       'metadata MUST be an object. Validation failed for FluidcoinsPay'
