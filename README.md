@@ -294,7 +294,7 @@ const config = {
 
 Possible values are the ISO 4217 currency codes, such as "USD" for the US dollar"
 
- NOTE: It defaults to NGN for Nigerian Naira
+NOTE: It defaults to default currency set on your [Fluidcoins](https://fluidcoins.com/)  dashboard.
 
 ```
 const config = {
@@ -312,30 +312,5 @@ const config = {
       key: 1
   },
   currency: 'USD'
-};
-```
-
-**_`metadata`_**
-
-**OPTIONAL**
-
-This optional parameter, which is should contain data you will like to be passed via webhooks about the transaction.
-NOTE: The _metadata_ must be an **OBJECT**
-
-```
-const config = {
-  publicKey: 'YOUR_FLUIDCOINS_PUBLIC_KEY',
-  amount: parseInt(value, 10) * 100,
-  email: 'johndoe@test.com',
-  onSuccess: (data) => {
-    console.log(data)
-  },
-  onClose: () => {},
-  name: 'Seun Akanni',
-  phone: '+2348090909090',
-  reference: 'random-unique-identifier'
-  metadata: {
-      key: 1
-  }
 };
 ```
