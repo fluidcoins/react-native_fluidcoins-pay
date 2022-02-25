@@ -27,23 +27,10 @@ const validate = (config: Config) => {
     );
   }
 
-  const currency = (config.currency && config.currency.toUpperCase()) || 'NGN';
-
-  switch (currency) {
-    case SUPPORTED_CURRENCIES.USD:
-      if (!config.amount || config.amount / 100 < 1) {
-        throw new Error(
-          `Minimum 'amount' is 1 USD. Validation failed for FluidcoinsPay`
-        );
-      }
-      break;
-    default:
-      if (!config.amount || config.amount / 100 < 500) {
-        throw new Error(
-          `Minimum 'amount' is 500 NGN. Validation failed for FluidcoinsPay`
-        );
-      }
-      break;
+  if (!config.amount || config.amount / 100 < 1) {
+    throw new Error(
+      `Minimum 'amount' is 1. Validation failed for FluidcoinsPay`
+    );
   }
 
   if (config.metadata && typeof config.metadata !== 'object') {
