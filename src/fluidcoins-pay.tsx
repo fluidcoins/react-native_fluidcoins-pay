@@ -39,7 +39,7 @@ const FluidcoinsPay = (configProps: ConfigPropsWithURL): JSX.Element => {
     }
   };
   return (
-    <SafeAreaView style={styles.full}>
+    <SafeAreaView style={styles.fullFlex}>
       <Modal
         transparent={false}
         animationType="fade"
@@ -48,7 +48,7 @@ const FluidcoinsPay = (configProps: ConfigPropsWithURL): JSX.Element => {
           configProps.setOpenWidget && configProps.setOpenWidget(false);
         }}
       >
-        <SafeAreaView style={styles.full}>
+        <SafeAreaView style={[styles.fullFlex, styles.innerContainer]}>
           <StatusBar backgroundColor="#252525" barStyle={'light-content'} />
           <WebView
             style={styles.webView}
@@ -73,21 +73,18 @@ const FluidcoinsPay = (configProps: ConfigPropsWithURL): JSX.Element => {
 };
 
 const styles = StyleSheet.create({
-  full: {
+  fullFlex: {
+    flex: 1,
+  },
+  innerContainer: {
     flex: 1,
     backgroundColor: '#252525',
-    position: 'relative',
   },
   webView: {
     flex: 4,
     backgroundColor: '#252525',
   },
   loaderContainer: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
     width: '100%',
     height: '100%',
     justifyContent: 'center',
