@@ -5,6 +5,7 @@ import {
   Modal,
   ActivityIndicator,
   View,
+  StatusBar,
 } from 'react-native';
 import WebView from 'react-native-webview';
 import PropTypes from 'prop-types';
@@ -48,8 +49,9 @@ const FluidcoinsPay = (configProps: ConfigPropsWithURL): JSX.Element => {
         }}
       >
         <SafeAreaView style={styles.full}>
+          <StatusBar backgroundColor="#252525" barStyle={'light-content'} />
           <WebView
-            style={styles.full}
+            style={styles.webView}
             source={{
               uri: configProps.payURL,
             }}
@@ -60,7 +62,7 @@ const FluidcoinsPay = (configProps: ConfigPropsWithURL): JSX.Element => {
             }}
           />
           {isLoading && (
-            <View style={styles.full}>
+            <View style={styles.loaderContainer}>
               <ActivityIndicator size="large" color="#035AA6" />
             </View>
           )}
@@ -73,6 +75,23 @@ const FluidcoinsPay = (configProps: ConfigPropsWithURL): JSX.Element => {
 const styles = StyleSheet.create({
   full: {
     flex: 1,
+    backgroundColor: '#252525',
+    position: 'relative',
+  },
+  webView: {
+    flex: 4,
+    backgroundColor: '#252525',
+  },
+  loaderContainer: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
