@@ -1,6 +1,6 @@
 {
   "name": "@fluidcoins/react-native-fluidcoins-pay",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Connect your React native app with FluidcoinsPay",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -61,10 +61,10 @@
     "jest": "^26.0.1",
     "pod-install": "^0.1.0",
     "prettier": "^2.0.5",
-    "react": "16.13.1",
-    "react-native": "0.64.1",
+    "react": "17.0.2",
+    "react-native": "0.65.1",
     "react-native-builder-bob": "^0.18.0",
-    "react-native-webview": "^11.14.0",
+    "react-native-webview": "^11.21.1",
     "release-it": "^14.2.2",
     "typescript": "^4.1.3"
   },
